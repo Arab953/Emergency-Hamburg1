@@ -1,0 +1,157 @@
+if game.PlaceId == 7711635737 then
+    -- Rayfield library setup
+    local Rayfield
+    local success, message = pcall(function()
+        Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+    end)
+
+    if not success then
+        warn("Failed to load Rayfield: " .. message)
+        return -- Stop execution if Rayfield failed to load
+    end
+
+    -- Create the main window
+    local Window = Rayfield:CreateWindow({
+        Name = "Emergency Hamburg Scripts",
+        LoadingTitle = "Emergency Hamburg Scripts By:soulz_1720",
+        LoadingSubtitle = "by Soulz",
+        Theme = "Default",
+        DisableRayfieldPrompts = false,
+        DisableBuildWarnings = false,
+        ConfigurationSaving = {
+            Enabled = true,
+            FileName = "Emergency Hamburg Hub"
+        },
+        Discord = {
+            Enabled = true,
+            Invite = "qQz7BEB2",
+            RememberJoins = true
+        },
+        KeySystem = true,
+        KeySettings = {
+            Title = "Untitled",
+            Subtitle = "Key System",
+            Note = "https://discord.gg/qQz7BEB2",
+            FileName = "Key",
+            SaveKey = false,
+            Key = {"Hub22"}
+        }
+    })
+
+    -- Tab for Main Features
+    local Tab = Window:CreateTab("Main Features", 4483362458)
+
+    -- ESP Button
+    local ESPButton = Tab:CreateButton({
+        Name = "ESP",
+        Callback = function()
+            -- ESP implementation here...
+        end
+    })
+
+    -- Infinite Jump Button
+    local InfiniteJumpButton = Tab:CreateButton({
+        Name = "Infinite Jump",
+        Callback = function()
+            loadstring(game:HttpGet("https://pastebin.com/raw/WweihvrM"))()
+        end
+    })
+
+    -- Aimbot/ESP Button
+    local AimbotButton = Tab:CreateButton({
+        Name = "Aimbot/ESP",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/CriShoux/OwlHub/master/OwlHub.txt"))()
+        end
+    })
+
+    -- Mod Cars Button
+    local ModCarsButton = Tab:CreateButton({
+        Name = "Mod Cars",
+        Callback = function()
+            loadstring(game:HttpGet("https://pastebin.com/raw/vrAfVSFT"))()
+        end
+    })
+
+    -- Cars Mod/fly speed Toggle
+    local CarsModToggle = Tab:CreateToggle({
+        Name = "Cars Mod/fly speed",
+        CurrentValue = false,
+        Flag = "Toggle1", -- A flag is the identifier for the configuration file
+        Callback = function(Value)
+            if Value then
+                loadstring(game:HttpGet("https://pastebin.com/raw/v5Pj1G8p", true))()
+            else
+                print("Cars Mod/fly speed Disabled!")
+            end
+        end
+    })
+
+    -- Tab for Teleport
+    local TeleportTab = Window:CreateTab("Teleport", "rewind")
+
+    -- Teleport to Player Button
+    local TeleportToPlayerButton = TeleportTab:CreateButton({
+        Name = "Teleport to Player",
+        Callback = function()
+            local targetPlayer = game.Players:GetPlayers()
+            if #targetPlayer > 1 then
+                local target = targetPlayer[2] -- Change index for different player
+                if target ~= game.Players.LocalPlayer then
+                    game.Players.LocalPlayer.Character:MoveTo(target.Character.HumanoidRootPart.Position)
+                end
+            end
+        end
+    })
+
+    -- Teleport Player to You Button
+    local TeleportPlayerToYouButton = TeleportTab:CreateButton({
+        Name = "Teleport Player to You",
+        Callback = function()
+            local targetPlayer = game.Players:GetPlayers()
+            if #targetPlayer > 1 then
+                local target = targetPlayer[2] -- Change index to choose player
+                if target ~= game.Players.LocalPlayer then
+                    target.Character:MoveTo(game.Players.LocalPlayer.Character.HumanoidRootPart.Position)
+                end
+            end
+        end
+    })
+
+    -- Settings Tab for Fov and Theme
+    local SettingsTab = Window:CreateTab("Settings", 4483362458)
+
+    -- FOV Button
+    local FovButton = SettingsTab:CreateButton({
+        Name = "FOV Script",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/Glockyori/fov/main/fovscript"))()
+        end
+    })
+
+    -- Open Emergency Hamburg Hub Button
+    local OpenEmergencyHamburgHubButton = SettingsTab:CreateButton({
+        Name = "Open Emergency Hamburg Hub",
+        Callback = function()
+            -- Load the Emergency Hamburg Hub script from the provided URL
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/50axys/skyrise/refs/heads/main/Main"))()
+        end
+    })
+
+    -- Open Nexar Hub Button (Renamed)
+    local OpenNexarHubButton = SettingsTab:CreateButton({
+        Name = "Open Nexar Hub key 11091007",  -- Changed button name to "Open Nexar Hub key 11091007"
+        Callback = function()
+            -- Load the Nexar Hub script from the provided URL
+            loadstring(game:HttpGet("https://techhub.group/scripts/nexareh"))()
+        end
+    })
+
+    -- Admin Script Button (Infinite Yield)
+    local AdminButton = SettingsTab:CreateButton({
+        Name = "Admin Script",
+        Callback = function()
+            -- Admin Script implementation here...
+        end
+    })
+end
